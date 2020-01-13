@@ -18,19 +18,19 @@ init();
 animate();
 
 function init() {
-  container = document.createElement('div');
-  container.style.position = 'fixed';
-  container.style.top = '0';
-  container.style.left = '0';
-  container.style.zIndex = '-1';
-  container.style.opacity = '1';
+  container = document.createElement("div");
+  container.style.position = "fixed";
+  container.style.top = "0";
+  container.style.left = "0";
+  container.style.zIndex = "-1";
+  container.style.opacity = "1";
   document.body.appendChild(container);
 
   camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
     1,
-    10000,
+    10000
   );
   camera.position.z = 1000;
 
@@ -58,17 +58,17 @@ function init() {
   }
 
   var geometry = new THREE.BufferGeometry();
-  geometry.addAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.addAttribute('scale', new THREE.BufferAttribute(scales, 1));
+  geometry.addAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.addAttribute("scale", new THREE.BufferAttribute(scales, 1));
 
   var material = new THREE.ShaderMaterial({
     uniforms: {
-      color: { value: new THREE.Color(0x1890ff) },
+      color: { value: new THREE.Color(0x1890ff) }
     },
     vertexShader:
-      'attribute float scale;void main() {vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );gl_PointSize = scale * ( 300.0 / - mvPosition.z );gl_Position = projectionMatrix * mvPosition;}',
+      "attribute float scale;void main() {vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );gl_PointSize = scale * ( 300.0 / - mvPosition.z );gl_Position = projectionMatrix * mvPosition;}",
     fragmentShader:
-      'uniform vec3 color;void main() {if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;gl_FragColor = vec4( color, 1.0 );}',
+      "uniform vec3 color;void main() {if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;gl_FragColor = vec4( color, 1.0 );}"
   });
 
   particles = new THREE.Points(geometry, material);
@@ -80,11 +80,11 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   container.appendChild(renderer.domElement);
 
-  document.addEventListener('mousemove', onDocumentMouseMove, false);
-  document.addEventListener('touchstart', onDocumentTouchStart, false);
-  document.addEventListener('touchmove', onDocumentTouchMove, false);
+  document.addEventListener("mousemove", onDocumentMouseMove, false);
+  document.addEventListener("touchstart", onDocumentTouchStart, false);
+  document.addEventListener("touchmove", onDocumentTouchMove, false);
 
-  window.addEventListener('resize', onWindowResize, false);
+  window.addEventListener("resize", onWindowResize, false);
 }
 
 function onWindowResize() {

@@ -43,7 +43,7 @@ service.interceptors.response.use(
       console.log("mock request:" + res.config.url, res.data);
     }
     if (res.status === 200) {
-      const data: ResponseData = res.data
+      const data: ResponseData = res.data;
       if (data.code === 0) {
         return data.data;
       } else {
