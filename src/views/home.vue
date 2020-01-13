@@ -7,7 +7,7 @@
           <img
             class="home-logo"
             src="../assets/userLogo.jpeg"
-            alt="biaochenxuying logo"
+            alt="yangyufeng logo"
           />
         </router-link>
       </div>
@@ -43,7 +43,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="link"
-            href="https://segmentfault.com/u/biaochenxuying"
+            href="https://segmentfault.com/u/yangyufeng"
           >
             segmentfault
           </a>

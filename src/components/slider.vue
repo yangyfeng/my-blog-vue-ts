@@ -40,7 +40,7 @@
       <div class="content">
         <img
           style="width:100%;"
-          src="../assets/BiaoChenXuYing.png"
+          src="../assets/yangyufeng.png"
           alt="全栈修炼"
         />
       </div>
