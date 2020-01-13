@@ -26,9 +26,13 @@
         v-for="item in list"
         class="item"
         :key="item._id"
-        :to="`/articles?tag_id=${item._id}`"
+        :to="
+          `/articles?tag_id=${item._id}&tag_name=${item.name}&category_id=${
+            item.category
+          }`
+        "
       >
-        <span :key="item._id">{{item.name}}</span>
+        <span :key="item._id">{{ item.name }}</span>
       </router-link>
     </div>
     <div class="introduce">

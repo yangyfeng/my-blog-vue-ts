@@ -35,15 +35,12 @@ export interface RegAndLogParams {
   desc: string;
 }
 
-
 // 导航 nav
 export interface NavListItem {
   index: string;
   path: string;
   name: string;
 }
-
-
 
 // 文章归档
 export interface ParamsArchive {
@@ -69,7 +66,6 @@ export interface ArchiveData {
   count: number;
   list: ArchiveList | any;
 }
-
 
 // 文章详情
 export interface OtherComments {
@@ -154,7 +150,6 @@ export interface ArticlesData {
   list: List | any;
 }
 
-
 // 留言
 export interface MessageParams {
   email: string;
@@ -173,7 +168,6 @@ export interface Rules {
   content: RulesItem[];
 }
 
-
 // 项目
 export interface ProjectList {
   content: string;
@@ -189,7 +183,6 @@ export interface ProjectsData {
   list: ProjectList | any;
 }
 
-
 // 历程
 export interface TimelineList {
   content: string;
@@ -204,11 +197,11 @@ export interface TimelinesData {
   list: TimelineList | any;
 }
 
-
 // 标签
 export interface TagList {
   name: string;
   _id: string;
+  category: string;
 }
 export interface TagsData {
   count: number;

@@ -30,7 +30,8 @@ const mockData: any = {
       "list|15-20": [
         {
           name: "@string",
-          _id: "@natural(10, 100000)"
+          _id: "@natural(10, 100000)",
+          category: "@string"
         }
       ]
     }
@@ -45,6 +46,30 @@ const mockData: any = {
       wordcount: R.integer(0, 100),
       harvestlike: R.integer(0, 100)
     }
+  },
+  // 获取文章
+  getArticleList: {
+    code: 0,
+    message: "操作成功",
+    data: {
+      count: "@integer(0,100)",
+      "list|15-20": [
+        {
+          "category|1-5": "@string(3, 5)",
+          create_time: +new Date(R.date()),
+          desc: "@string(23, 25)",
+          img_url: R.dataImage("350x250"),
+          meta: {
+            views: "@integer(0,100)",
+            likes: "@integer(0,100)",
+            comments: "@integer(0,100)"
+          },
+          "tags|3-5": "@string(3, 5)",
+          title: "@string(10, 15)",
+          _id: "@id"
+        }
+      ]
+    }
   }
 };
 Mock.setup({
@@ -53,7 +78,6 @@ Mock.setup({
 for (const key in mockData) {
   let urls: any = URLs;
   if (urls[key]) {
-    console.log(urls[key]);
     Mock.mock(new RegExp("/mock/" + urls[key] + ".*"), mockData[key]);
   }
 }
