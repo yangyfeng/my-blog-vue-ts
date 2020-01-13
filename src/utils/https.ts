@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "development") {
 } else {
   // 生产环境下
   service = axios.create({
-    baseURL: "/api",
+    baseURL: "/mock",
     timeout: 50000
   });
 }
