@@ -1,6 +1,5 @@
 <template>
-  <div id="app"
-       class="container">
+  <div id="app" class="container">
     <Nav v-if="isShowNav" />
     <div class=" layout">
       <router-view />

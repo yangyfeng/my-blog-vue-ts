@@ -12,10 +12,10 @@
           <el-card shadow="hover">
             <img :src="l.img" class="image" />
             <div style="padding: 14px;">
-              <h4>{{l.title}}</h4>
-              <div class="content">{{l.content}}</div>
-              <span>{{formatTime(l.start_time)}}--</span>
-              <span>{{formatTime(l.end_time)}}</span>
+              <h4>{{ l.title }}</h4>
+              <div class="content">{{ l.content }}</div>
+              <span>{{ formatTime(l.start_time) }}--</span>
+              <span>{{ formatTime(l.end_time) }}</span>
             </div>
           </el-card>
         </a>
@@ -107,4 +107,3 @@ export default class Timeline extends Vue {
   }
 }
 </style>
-
