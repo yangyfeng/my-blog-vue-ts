@@ -3,7 +3,7 @@
     <el-timeline>
       <el-timeline-item
         v-for="(l, i) in list"
-        :key="l._id"
+        :key="i"
         :color="l.state === 1 ? 'green' : l.state === 3 ? 'red' : ''"
         placement="top"
         hide-timestamp

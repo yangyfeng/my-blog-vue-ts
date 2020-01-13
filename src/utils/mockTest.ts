@@ -309,6 +309,30 @@ const mockData: any = {
     code: 0,
     message: "操作成功",
     data: {}
+  },
+  // 留言
+  addMessage: {
+    code: 0,
+    message: "操作成功",
+    data: {}
+  },
+  // 历程
+  getTimeAxisList: {
+    code: 0,
+    message: "操作成功",
+    data: {
+      count: "@integer(0,100)",
+      "list|15-20": [
+        {
+          content: "@string(50, 100)",
+          end_time: +new Date(R.date()),
+          start_time: +new Date(R.date()),
+          title: "@string(20, 30)",
+          "state|1": [1, 3, ""],
+          _id: "@id"
+        }
+      ]
+    }
   }
 };
 Mock.setup({
