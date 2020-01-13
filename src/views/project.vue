@@ -1,26 +1,21 @@
 <template>
   <div class="project left">
     <el-row :gutter="20">
-      <el-col class="el-col-pointer"
-              :span="isMobileOrPc ? 24 : 12"
-              v-for="(l, index) in list"
-              :key="l._id"
-              style="margin-bottom: 20px">
-        <a :href="l.url"
-           target="_blank"
-           rel="noopener noreferrer">
+      <el-col
+        class="el-col-pointer"
+        :span="isMobileOrPc ? 24 : 12"
+        v-for="(l, index) in list"
+        :key="index"
+        style="margin-bottom: 20px"
+      >
+        <a :href="l.url" target="_blank" rel="noopener noreferrer">
           <el-card shadow="hover">
-            <img :src="l.img"
-                 class="image">
+            <img :src="l.img" class="image" />
             <div style="padding: 14px;">
               <h4>{{l.title}}</h4>
               <div class="content">{{l.content}}</div>
-              <span>
-                {{formatTime(l.start_time)}}--
-              </span>
-              <span>
-                {{formatTime(l.end_time)}}
-              </span>
+              <span>{{formatTime(l.start_time)}}--</span>
+              <span>{{formatTime(l.end_time)}}</span>
             </div>
           </el-card>
         </a>
@@ -79,11 +74,13 @@ export default class Timeline extends Vue {
 
   private async handleSearch(): Promise<void> {
     this.isLoading = true;
-    const data: ProjectsData = await this.$https.get(this.$urls.getProjectList, {
-      params: this.params
-    });
+    const data: ProjectsData = await this.$https.get(
+      this.$urls.getProjectList,
+      {
+        params: this.params
+      }
+    );
     this.isLoading = false;
-    console.log(data)
     this.list = [...this.list, ...data.list];
     this.total = data.count;
     this.params.pageNum++;

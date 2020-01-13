@@ -21,6 +21,8 @@ export const urls: object = {
 
   getTagList: "getTagList",
 
+  getFavorite: "getFavorite",
+
   getCategoryList: "getCategoryList",
 
   getTimeAxisList: "getTimeAxisList",

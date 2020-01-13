@@ -214,3 +214,11 @@ export interface TagsData {
   count: number;
   list: TagList | any;
 }
+
+// 喜好
+export interface Favorite {
+  fans: number;
+  article: number;
+  wordcount: number;
+  harvestlike: number;
+}

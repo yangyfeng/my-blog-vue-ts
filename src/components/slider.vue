@@ -1,46 +1,54 @@
 <template>
   <div class="right slider">
-    <img class="right-logo"
-         src="../assets/userLogo.jpeg"
-         alt="">
+    <img class="right-logo" src="../assets/userLogo.jpeg" alt="" />
     <div class="title">漫道求索</div>
     <div class="right-content">
-      <!-- <div class="item">
-        <div class="num">123</div>粉丝
+      <div class="item">
+        <div class="num">{{ favorite.fans }}</div>
+        粉丝
       </div>
       <div class="item">
-        <div class="num">123</div>文章
+        <div class="num">{{ favorite.article }}</div>
+        文章
       </div>
       <div class="item">
-        <div class="num">123</div>字数
+        <div class="num">{{ favorite.wordcount }}</div>
+        字数
       </div>
       <div class="item">
-        <div class="num">123</div>收获喜欢
-      </div> -->
+        <div class="num">{{ favorite.harvestlike }}</div>
+        收获喜欢
+      </div>
     </div>
     <div class="tags">
       <div class="title">标签云</div>
-      <router-link v-for="item in list"
-                   class="item"
-                   :key="item._id"
-                   :to="`/articles?tag_id=${item._id}&tag_name=${item.name}&category_id=`">
+      <router-link
+        v-for="item in list"
+        class="item"
+        :key="item._id"
+        :to="`/articles?tag_id=${item._id}`"
+      >
         <span :key="item._id">{{item.name}}</span>
       </router-link>
     </div>
     <div class="introduce">
-      <div class="title">技术以内的 BB</div>
+      <div class="title">全栈修炼</div>
       <div class="content">
-        <img style="width:100%;"
-             src="../assets/BiaoChenXuYing.png"
-             alt="全栈修炼" />
+        <img
+          style="width:100%;"
+          src="../assets/BiaoChenXuYing.png"
+          alt="全栈修炼"
+        />
       </div>
     </div>
     <div class="introduce">
-      <div class="title">技术以外的 BB</div>
+      <div class="title">硬核杂货铺</div>
       <div class="content">
-        <img style="width:100%;"
-             src="../assets/YingHeZaHuoPu.png"
-             alt="硬核杂货铺" />
+        <img
+          style="width:100%;"
+          src="../assets/YingHeZaHuoPu.png"
+          alt="硬核杂货铺"
+        />
       </div>
     </div>
   </div>
@@ -48,12 +56,10 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { Params, TagsData } from "@/types/index";
+import { Params, TagsData, Favorite } from "@/types/index";
 
 @Component
 export default class Slider extends Vue {
-  private isLoadEnd: boolean = false;
-  private isLoading: boolean = false;
   private list: Array<object> = [];
   private total: number = 0;
   private params: Params = {
@@ -61,24 +67,23 @@ export default class Slider extends Vue {
     pageNum: 1,
     pageSize: 100
   };
-
+  private favorite: Favorite = {
+    fans: 0,
+    article: 0,
+    wordcount: 0,
+    harvestlike: 0
+  };
   mounted(): void {
     this.handleSearch();
   }
-
   private async handleSearch(): Promise<void> {
-    this.isLoading = true;
     const data: TagsData = await this.$https.get(this.$urls.getTagList, {
       params: this.params
     });
-    this.isLoading = false;
-
     this.list = [...this.list, ...data.list];
     this.total = data.count;
     this.params.pageNum++;
-    if (this.total === this.list.length) {
-      this.isLoadEnd = true;
-    }
+    this.favorite = await this.$https.get(this.$urls.getFavorite);
   }
 }
 </script>
