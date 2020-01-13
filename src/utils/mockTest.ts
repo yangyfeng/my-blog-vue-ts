@@ -184,6 +184,35 @@ const mockData: any = {
       ]
     }
   },
+  // 归档
+  getArticleZIPList: {
+    code: 0,
+    message: "操作成功",
+    data: {
+      count: "@integer(0,100)",
+      "list|15-20": [
+        {
+          year: "@date('yyyy')",
+          "list|10-20": [
+            {
+              "category|1-5": "@string(3, 5)",
+              create_time: +new Date(R.date()),
+              desc: "@string(23, 25)",
+              img_url: R.dataImage("350x250"),
+              meta: {
+                views: "@integer(0,100)",
+                likes: "@integer(0,100)",
+                comments: "@integer(0,100)"
+              },
+              "tags|3-5": ["@string(3, 5)"],
+              title: "@string(10, 15)",
+              _id: "@id"
+            }
+          ]
+        }
+      ]
+    }
+  },
   // 文章详情
   getArticleDetail: {
     code: 0,
@@ -246,6 +275,40 @@ const mockData: any = {
       title: "@string(23, 25)",
       update_time: +new Date(R.date())
     }
+  },
+  // 登陆
+  login: {
+    code: 0,
+    message: "操作成功",
+    data: {
+      _id: "@id",
+      name: "@string(3, 4)",
+      avatar: R.dataImage("50x50")
+    }
+  },
+  // 注册
+  register: {
+    code: 0,
+    message: "操作成功",
+    data: {}
+  },
+  // 点赞
+  likeArticle: {
+    code: 0,
+    message: "操作成功",
+    data: {}
+  },
+  // 增加评论
+  addComment: {
+    code: 0,
+    message: "操作成功",
+    data: {}
+  },
+  // 增加三级评论
+  addThirdComment: {
+    code: 0,
+    message: "操作成功",
+    data: {}
   }
 };
 Mock.setup({

@@ -12,7 +12,7 @@ export const urls: object = {
   getArticleList: "getArticleList",
   likeArticle: "likeArticle",
   getArticleDetail: "getArticleDetail",
-
+  getArticleZIPList: "getArticleZIPList",
   addMessage: "addMessage",
   getMessageList: "getMessageList",
   getMessageDetail: "getMessageDetail",
