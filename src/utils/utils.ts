@@ -4,7 +4,7 @@ export function throttle(fn: Function, delay: number) {
   let last = 0,
     timer: any = null;
   // 将throttle处理结果当作函数返回
-  return function() {
+  return function () {
     // 保留调用时的this上下文
     let context = this;
     // 保留调用时传入的参数
@@ -16,7 +16,7 @@ export function throttle(fn: Function, delay: number) {
     if (now - last < delay) {
       // 如果时间间隔小于我们设定的时间间隔阈值，则为本次触发操作设立一个新的定时器
       clearTimeout(timer);
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         last = now;
         fn.apply(context, args);
       }, delay);
