@@ -40,7 +40,7 @@
       <div class="content">
         <img
           style="width:100%;"
-          src="../assets/yangyufeng.png"
+          src="../assets/introduce1.png"
           alt="全栈修炼"
         />
       </div>
@@ -50,7 +50,7 @@
       <div class="content">
         <img
           style="width:100%;"
-          src="../assets/YingHeZaHuoPu.png"
+          src="../assets/introduce2.png"
           alt="硬核杂货铺"
         />
       </div>

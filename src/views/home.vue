@@ -27,33 +27,9 @@
             target="_blank"
             rel="noopener noreferrer"
             class="link"
-            href="https://juejin.im/user/591d6b4d0ce463006926ae40"
-          >
-            掘金
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link"
-            href="https://www.zhihu.com/people/gu-jian-qi-tan-shui/activities"
-          >
-            知乎
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link"
             href="https://segmentfault.com/u/yangyufeng"
           >
             segmentfault
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link"
-            href="https://www.jianshu.com/u/91717b553bfd"
-          >
-            简书
           </a>
         </div>
         <div class="introduce">时光正好，未来可期，加油 ！</div>

@@ -7,7 +7,7 @@
           v-model="content"
           placeholder="文明社会，理性评论"
           autocomplete="off"
-        ></Input>
+        />
       </FormItem>
     </Form>
     <div slot="footer" class="dialog-footer">
@@ -20,7 +20,6 @@
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 import { Dialog, Form, FormItem, Input, Button, Message } from "element-ui";
-import config from "@/utils/config";
 import { ToUser } from "@/types/index";
 
 @Component({

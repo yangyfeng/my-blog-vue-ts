@@ -5,7 +5,7 @@
         <el-row :gutter="20">
           <el-col :span="3">
             <router-link to="/">
-              <img class="logo" src="../assets/logo.jpg" alt="yangyufeng" />
+              <img class="logo" src="../assets/userLogo.jpeg" alt="yangyufeng" />
             </router-link>
           </el-col>
           <el-col :span="16">
@@ -75,7 +75,7 @@
       <div class="nav-mobile">
         <div class="nav-mobile-logo">
           <router-link to="/">
-            <img class="logo fl" src="../assets/logo.jpg" alt="yangyufeng" />
+            <img class="logo fl" src="../assets/userLogo.jpeg" alt="yangyufeng" />
           </router-link>
         </div>
         <div class="title">{{ title }}</div>

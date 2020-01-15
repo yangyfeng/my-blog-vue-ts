@@ -14,7 +14,6 @@
       </FormItem>
     </Form>
     <div slot="footer" class="dialog-footer">
-      <Button type="success" @click="handleOAuth">github 授权登录</Button>
       <Button type="primary" @click="handleOk">确 定</Button>
     </div>
   </Dialog>
@@ -23,7 +22,6 @@
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 import { Dialog, Form, FormItem, Input, Button, Message } from "element-ui";
-import config from "@/utils/config";
 import { LoginParams, UserInfo } from "@/types/index";
 
 @Component({
@@ -58,18 +56,7 @@ export default class Login extends Vue {
   }
 
   // method
-  private handleOAuth(): void {
-    // 保存授权前的页面链接内容
-    let preventHistory = {
-      pathname: window.location.pathname,
-      search: window.location.search
-    };
-    window.sessionStorage.preventHistory = JSON.stringify(preventHistory);
-    // window.location.href = 'https://github.com/login/oauth/authorize?client_id=6de90ab270aea2bdb01c&redirect_uri=http://yangyufeng.cn/login'
-    window.location.href = `${config.oauth_uri}?client_id=${
-      config.client_id
-    }&redirect_uri=${config.redirect_uri}`;
-  }
+
 
   private handleOk(): void {
     const reg = new RegExp(

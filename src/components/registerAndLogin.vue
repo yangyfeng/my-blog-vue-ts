@@ -53,7 +53,6 @@
       </el-formItem>
     </el-form>
     <div slot="footer" class="dialog-footer">
-      <el-button type="success" @click="handleOAuth">github 授权登录</el-button>
       <el-button
         v-if="handleFlag === 'login'"
         :loading="btnLoading"
@@ -74,7 +73,6 @@
 
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from "vue-property-decorator";
-import config from "@/utils/config";
 import { RegAndLogParams, UserInfo } from "@/types/index";
 
 @Component({
@@ -106,18 +104,6 @@ export default class RegisterAndLogin extends Vue {
   }
 
   // method
-  private handleOAuth(): void {
-    // 保存授权前的页面链接内容
-    let preventHistory: object = {
-      name: this.$route.name,
-      query: this.$route.query
-    };
-    window.sessionStorage.preventHistory = JSON.stringify(preventHistory);
-    // window.location.href = 'https://github.com/login/oauth/authorize?client_id=6de90ab270aea2bdb01c&redirect_uri=http://yangyufeng.cn/login'
-    window.location.href = `${config.oauth_uri}?client_id=${
-      config.client_id
-    }&redirect_uri=${config.redirect_uri}`;
-  }
 
   private handleOk(): void {
     const reg = new RegExp(
